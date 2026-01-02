@@ -34,6 +34,14 @@ def get_period_phrase(period):
 # Convert paths to be relative to BASE_DIR
 COVER_IMAGE_DIR = os.path.join(BASE_DIR, config["directories"]["cover_images"])
 MOOD_MAP_PATH = os.path.join(BASE_DIR, config["files"]["mood_map"])
+print(MOOD_MAP_PATH)
+
+#exit()
+
+
+
+
+
 FONTS_DIR = os.path.join(BASE_DIR, config["directories"]["fonts"])
 
 FONT_MAIN_PATH = os.path.join(FONTS_DIR, config["fonts"]["main"])
@@ -72,7 +80,8 @@ def get_current_time_period():
     # Fallback if not found
     return "Late Night"
 
-def load_descriptor_map(filepath="moodmap.json"):
+#def load_descriptor_map(filepath="assets/moodmap.json"):
+def load_descriptor_map(filepath=MOOD_MAP_PATH):
     try:
         with open(filepath, "r", encoding="utf-8") as file:
             return json.load(file)
@@ -343,7 +352,8 @@ def sort_by_sonic_similarity_greedy(tracks, limit=20, max_distance=1.0):
     return sorted_list
 
 def generate_playlist_title_and_description(period, tracks):
-    descriptor_map = load_descriptor_map("moodmap.json")
+#    descriptor_map = load_descriptor_map("assets/moodmap.json")
+    descriptor_map = load_descriptor_map(MOOD_MAP_PATH)
     day_name = datetime.now().strftime("%A")
 
     top_genres = [str(g) for t in tracks for g in (t.genres or [])]
@@ -460,10 +470,10 @@ def apply_text_to_cover(image_path, text):
 def create_or_update_playlist(name, tracks, description, cover_file):
     try:
         existing_playlist = None
-        for playlist in plex.playlists():
-            if playlist.title.startswith("Meloday for "):
-                existing_playlist = playlist
-                break
+#        for playlist in plex.playlists():
+#            if playlist.title.startswith("Meloday for "):
+#                existing_playlist = playlist
+#                break
 
         valid_tracks = [t for t in tracks if hasattr(t, "ratingKey")]
         if existing_playlist:
