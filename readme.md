@@ -1,5 +1,39 @@
 # Docker support coming soon
 
+# Install / usage
+
+* **Install requirements:**
+
+~~~
+pip install -r requirements.txt
+~~~
+
+* **Edit config.yml**
+~~~
+cp config.yml.example config.yml
+~~~
+Change this section to match your setup:
+~~~
+plex:
+  url: "http://localhost:32400"                     # The URL of your Plex Media Server
+  token: "YOUR_PLEX_TOKEN"                          # Your Plex API authentication token - see https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/
+  music_library: "Music"                            # The name of your Plex music library
+~~~
+
+* **Run the script**
+~~~
+python3 meloday.py
+[------------------------------]   0%  Starting track selection...
+[===---------------------------]  10%  Current time period: Afternoon
+[======------------------------]  20%  Fetching historical tracks...
+[=========---------------------]  30%  Fetching sonically similar tracks...
+[============------------------]  40%  Combining & processing tracks...
+[=====================---------]  70%  Finding first & last historical tracks...
+[========================------]  80%  Performing GREEDY sonic sort...
+[===========================---]  90%  Creating/Updating playlist...
+[==============================] 100%  Playlist creation/update complete!
+~~~
+
 # Overview
 
 [Meloday](https://github.com/trackstacker/meloday) is a script that **automatically creates playlists throughout the day**, evolving with your listening habits. Inspired by Spotify’s **daylist**, it pulls tracks from your **Plex listening history**, finds **patterns in what you like at different times**, and builds a mix that feels both **familiar and fresh**—without getting repetitive.
