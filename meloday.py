@@ -21,7 +21,6 @@ config = load_config()
 PLEX_URL = config["plex"]["url"]
 PLEX_TOKEN = config["plex"]["token"]
 MUSIC_LIBRARY = config["plex"]["music_library"]
-
 EXCLUDE_PLAYED_DAYS = config["playlist"]["exclude_played_days"]
 HISTORY_LOOKBACK_DAYS = config["playlist"]["history_lookback_days"]
 MAX_TRACKS = config["playlist"]["max_tracks"]
@@ -34,24 +33,11 @@ def get_period_phrase(period):
 # Convert paths to be relative to BASE_DIR
 COVER_IMAGE_DIR = os.path.join(BASE_DIR, config["directories"]["cover_images"])
 MOOD_MAP_PATH = os.path.join(BASE_DIR, config["files"]["mood_map"])
-print(MOOD_MAP_PATH)
-
-#exit()
-
-
-
-
-
 FONTS_DIR = os.path.join(BASE_DIR, config["directories"]["fonts"])
-
 FONT_MAIN_PATH = os.path.join(FONTS_DIR, config["fonts"]["main"])
 FONT_MELODAY_PATH = os.path.join(FONTS_DIR, config["fonts"]["meloday"])
-
 time_periods = config["time_periods"]
-
 plex = PlexServer(PLEX_URL, PLEX_TOKEN, timeout=60)
-
-
 # ---------------------------------------------------------------------
 # HELPER: Print a simple progress bar (0-100%) with a message
 def print_status(percent, message):
