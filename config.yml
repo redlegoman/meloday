@@ -1,7 +1,7 @@
 plex:
-  url: "http://localhost:32400"                     # The URL of your Plex Media Server
-  token: "YOUR_PLEX_TOKEN"                     # Your Plex API authentication token
-  music_library: "Music"                            # The name of your Plex music library
+  url: "http://plex.mcdade.uk:32400"                     # The URL of your Plex Media Server
+  token: "TpQ269F8_jLcF5Nxp-4E"                     # Your Plex API authentication token
+  music_library: "Music: All"                            # The name of your Plex music library
 
 
 playlist:
